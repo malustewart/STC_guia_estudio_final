@@ -33,21 +33,21 @@ jobs:
       - name: Create website
         run: |
           mkdir site
-          cp index.pdf site/
+          cp STC_guia_estudio_final.pdf site/
 
           cat > site/index.html <<EOF
           <!DOCTYPE html>
           <html>
           <head>
             <meta charset="utf-8">
-            <title>Typst PDF</title>
+            <title>STC_guia_estudio_final</title>
           </head>
           <body>
-            <h1>Typst PDF</h1>
-            <p><a href="index.pdf">Download PDF</a></p>
+            <h1>pdf</h1>
+            <p><a href="STC_guia_estudio_final.pdf">Download PDF</a></p>
 
             <embed
-              src="index.pdf"
+              src="STC_guia_estudio_final.pdf"
               type="application/pdf"
               width="100%"
               height="900px"
