@@ -1,0 +1,76 @@
+name: Build Typst PDF
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Compile Typst file
+        run: typst compile STC_guia_estudio_final.typ STC_guia_estudio_final.pdf
+
+      - name: Create website
+        run: |
+          mkdir site
+          cp index.pdf site/
+
+          cat > site/index.html <<EOF
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <title>Typst PDF</title>
+          </head>
+          <body>
+            <h1>Typst PDF</h1>
+            <p><a href="index.pdf">Download PDF</a></p>
+
+            <embed
+              src="index.pdf"
+              type="application/pdf"
+              width="100%"
+              height="900px"
+            />
+          </body>
+          </html>
+          EOF
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
