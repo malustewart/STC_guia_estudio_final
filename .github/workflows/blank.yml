@@ -1,0 +1,28 @@
+name: Build Typst PDF
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Typst
+        uses: typst-community/setup-typst@v3
+
+      - name: Compile Typst file
+        run: typst compile STC_guia_estudio_final.typ STC_guia_estudio_final.pdf
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdf
+          path: STC_guia_estudio_final.pdf
