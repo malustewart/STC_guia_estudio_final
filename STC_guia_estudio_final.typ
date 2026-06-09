@@ -14,18 +14,30 @@
 
 #v(50pt)
 == Exámenes viejos
-- [ ] 2023
-  - [ ] Ej 1
-  - [ ] Ej 2
-  - [ ] Ej 3
-- [ ] 2024
-  - [ ] Ej 1
-  - [ ] Ej 2
-  - [ ] Ej 3
-- [ ] 2025
-  - [ ] Ej 1
-  - [ ] Ej 2
-  - [ ] Ej 3
+- [ ] Primeros parciales
+  - [ ] 2023
+    - [?] Ej 1
+    - [ ] Ej 2
+    - [ ] Ej 3
+  - [ ] 2024
+    - [ ] Ej 1
+    - [ ] Ej 2
+    - [ ] Ej 3
+  - [ ] 2025
+    - [ ] Ej 1
+    - [ ] Ej 2
+    - [ ] Ej 3
+
+- [ ] Segundos parciales
+  - [/] 2023
+    - [ ] Ej 1
+    - [x] Ej 2
+    - [/] Ej 3
+  - [/] 2024
+    - [x] Ej 1
+    - [?] Ej 2
+    - [?] Ej 3
+    - [?] Ej 4
 
 #pagebreak()
 == Temas
@@ -139,9 +151,7 @@
       - [ ] 7
 - [ ] Dispositivos semiconductores
 - [ ] Óptica guiada
-- [ ] Fibras ópticas
-- [ ] Propagación en fibras
-- [ ] Sistemas de comunicación óptica de alta capacidad
+- [ ] Propagación en fibras ópticas
 
 
 #pagebreak()
